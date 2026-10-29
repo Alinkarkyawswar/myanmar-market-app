@@ -1,0 +1,14 @@
+{
+  "name": "မြန်မာ့ဈေးကွက်",
+  "short_name": "မြန်မာ့ဈေးကွက်",
+  "description": "ဒေသတွင်း ဝန်ဆောင်မှုရှာဖွေရေး",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7f2",
+  "theme_color": "#14532d",
+  "lang": "my",
+  "icons": [
+    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
