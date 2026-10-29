@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="my">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#14532d">
+<meta name="description" content="မြန်မာ့ဈေးကွက် — ဒေသတွင်း ဝန်ဆောင်မှုများကို ရှာဖွေ၊ ကြော်ငြာတင်နိုင်သော အခမဲ့စမ်းသပ် App">
+<link rel="manifest" href="manifest.webmanifest">
+<title>မြန်မာ့ဈေးကွက်</title>
+<style>
+:root{--green:#14532d;--lime:#d9f99d;--bg:#f5f7f2;--ink:#18231c;--muted:#637067;--line:#dfe7df;--card:#fff;--gold:#eab308}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Myanmar",sans-serif}header{background:linear-gradient(135deg,#14532d,#166534);color:white;padding:22px 18px 18px;border-radius:0 0 24px 24px}header .top{display:flex;justify-content:space-between;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:15px;background:#d9f99d;color:#14532d;display:grid;place-items:center;font-size:25px;font-weight:900}h1{font-size:23px;margin:0}header p{margin:7px 0 0;color:#e4f3e7;font-size:13px}.pill{border:1px solid #ffffff70;border-radius:999px;padding:7px 10px;font-size:12px;color:white;background:#ffffff10}main{max-width:760px;margin:auto;padding:16px 14px 90px}.search{display:flex;gap:8px;margin:14px 0}.search input{flex:1;min-width:0}.field,input,select,textarea{font:inherit;border:1px solid var(--line);border-radius:12px;padding:12px;background:white;width:100%;color:var(--ink)}button{font:inherit;border:0;border-radius:12px;padding:12px 14px;background:var(--green);color:white;font-weight:700;cursor:pointer}.search button{padding-inline:16px}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin:22px 2px 12px}.sectionhead h2{font-size:18px;margin:0}.small{font-size:12px;color:var(--muted)}.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.cat{background:white;border:1px solid var(--line);border-radius:15px;padding:13px 6px;text-align:center;color:var(--ink);font-weight:600}.cat .emoji{font-size:25px;display:block;margin-bottom:5px}.cat.active{border:2px solid var(--green);background:#edf7ee}.list{display:grid;grid-template-columns:1fr;gap:10px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px}.cardtop{display:flex;gap:12px;align-items:flex-start}.serviceicon{height:46px;width:46px;flex-shrink:0;border-radius:13px;background:#edf7ee;display:grid;place-items:center;font-size:24px}.card h3{font-size:16px;margin:0 0 4px}.meta{font-size:12px;color:var(--muted);line-height:1.7}.price{font-weight:800;color:var(--green);margin-top:7px}.actions{display:flex;gap:8px;margin-top:12px}.actions button,.actions a{flex:1;text-align:center;text-decoration:none;font-size:13px;padding:10px}.secondary{background:#edf7ee;color:var(--green)}.gold{background:#fef3c7;color:#854d0e}.empty{text-align:center;color:var(--muted);padding:24px}.notice{background:#fff8df;border:1px solid #f3dfa0;border-radius:14px;padding:12px;font-size:12px;line-height:1.7;margin-top:18px}.tabbar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:center;z-index:5;padding:8px max(8px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom));gap:5px}.tabbar button{flex:1;max-width:180px;background:transparent;color:var(--muted);padding:8px 4px;font-size:12px}.tabbar button.active{color:var(--green);background:#edf7ee}.tabbar span{display:block;font-size:20px}.panel{display:none}.panel.active{display:block}.formgrid{display:grid;gap:12px}.formgrid label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.full{width:100%;margin-top:6px}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{padding:15px;border-radius:15px;background:white;border:1px solid var(--line)}.stat b{display:block;font-size:22px;color:var(--green)}.hidden{display:none!important}
+</style>
+</head>
+<body>
+<header><div class="top"><div style="display:flex;gap:12px;align-items:center"><div class="logo">ဈ</div><div><h1>မြန်မာ့ဈေးကွက်</h1><p>သင့်အနီးအနားက ဝန်ဆောင်မှုများ</p></div></div><button class="pill" id="installBtn" hidden>Install App</button></div></header>
+<main>
+<section id="home" class="panel active">
+<div class="search"><input id="search" placeholder="ဝန်ဆောင်မှု၊ မြို့နယ်၊ ဖုန်းနံပါတ် ရှာရန်" aria-label="ရှာဖွေရန်"><button id="searchBtn">ရှာမယ်</button></div>
+<div class="sectionhead"><h2>ဝန်ဆောင်မှုအမျိုးအစား</h2><span class="small">အမျိုးအစားရွေးပါ</span></div>
+<div class="cats" id="cats">
+<button class="cat active" data-cat="အားလုံး"><span class="emoji">🧰</span>အားလုံး</button>
+<button class="cat" data-cat="အိမ်ပြုပြင်"><span class="emoji">🔧</span>အိမ်ပြုပြင်</button>
+<button class="cat" data-cat="လျှပ်စစ်"><span class="emoji">💡</span>လျှပ်စစ်</button>
+<button class="cat" data-cat="ရေပိုက်"><span class="emoji">🚿</span>ရေပိုက်</button>
+<button class="cat" data-cat="သန့်ရှင်းရေး"><span class="emoji">🧹</span>သန့်ရှင်းရေး</button>
+<button class="cat" data-cat="ပို့ဆောင်ရေး"><span class="emoji">🛵</span>ပို့ဆောင်ရေး</button>
+<button class="cat" data-cat="အလှအပ"><span class="emoji">✂️</span>အလှအပ</button>
+<button class="cat" data-cat="သင်ကြားရေး"><span class="emoji">📚</span>သင်ကြားရေး</button>
+<button class="cat" data-cat="အခြား"><span class="emoji">🛠️</span>အခြား</button>
+</div>
+<div class="sectionhead"><h2>ဝန်ဆောင်မှုပေးသူများ</h2><span id="count" class="small"></span></div>
+<div id="serviceList" class="list"></div>
+<div class="notice"><b>စမ်းသပ်ဗားရှင်းဖြစ်ပါတယ်။</b> နမူနာစာရင်းတွေကို ပြထားပါတယ်။ သင့်ဖုန်းထဲမှာ သင်ထည့်တဲ့စာရင်းတွေကိုသာ သိမ်းထားနိုင်ပြီး အခြားသူတွေရဲ့ဖုန်းမှာ အလိုအလျောက် မပေါ်သေးပါ။</div>
+</section>
+<section id="add" class="panel">
+<div class="sectionhead"><h2>ဝန်ဆောင်မှု ကြော်ငြာတင်ရန်</h2></div>
+<p class="small">သင့်ဝန်ဆောင်မှုကို စာရင်းထဲထည့်ပြီး ကိုယ့်ဖုန်းမှာ စမ်းသပ်ကြည့်နိုင်ပါတယ်။</p>
+<form id="serviceForm" class="formgrid">
+<div><label>ဝန်ဆောင်မှုအမည် *</label><input name="name" required placeholder="ဥပမာ - အိမ်သုံးလျှပ်စစ်ပြုပြင်ခြင်း"></div>
+<div class="row2"><div><label>အမျိုးအစား *</label><select name="category" required><option value="အိမ်ပြုပြင်">အိမ်ပြုပြင်</option><option value="လျှပ်စစ်">လျှပ်စစ်</option><option value="ရေပိုက်">ရေပိုက်</option><option value="သန့်ရှင်းရေး">သန့်ရှင်းရေး</option><option value="ပို့ဆောင်ရေး">ပို့ဆောင်ရေး</option><option value="အလှအပ">အလှအပ</option><option value="သင်ကြားရေး">သင်ကြားရေး</option><option value="အခြား">အခြား</option></select></div><div><label>ဈေးနှုန်း/ဝန်ဆောင်ခ</label><input name="price" placeholder="ဥပမာ - ၁၀,၀၀၀ ကျပ်"></div></div>
+<div class="row2"><div><label>မြို့နယ်/မြို့ *</label><input name="town" required placeholder="ဥပမာ - မင်္ဂလာဒုံ"></div><div><label>ဖုန်းနံပါတ် *</label><input name="phone" type="tel" required placeholder="09xxxxxxxxx"></div></div>
+<div><label>အသေးစိတ်</label><textarea name="description" rows="3" placeholder="လုပ်ငန်းအတွေ့အကြုံ၊ ဝန်ဆောင်မှုပေးနိုင်သည့်အချိန်"></textarea></div>
+<button class="full" type="submit">စာရင်းထဲထည့်မယ်</button>
+</form>
+<div class="notice">လုံခြုံရေးအတွက် မိမိခွင့်ပြုထားတဲ့ ဆက်သွယ်ရန်အချက်အလက်ကိုသာ ထည့်ပါ။ အမှန်တကယ် ကြော်ငြာမတင်မီ လုပ်ငန်းအချက်အလက်ကို စစ်ဆေးပါ။</div>
+</section>
+<section id="income" class="panel">
+<div class="sectionhead"><h2>ဝင်ငွေ စီမံခန့်ခွဲမှု</h2></div>
+<div class="stats"><div class="stat"><span class="small">ကြော်ငြာစာရင်းစုစုပေါင်း</span><b id="statListings">0</b></div><div class="stat"><span class="small">ရရှိပြီး ဝန်ဆောင်ခ</span><b>0 ကျပ်</b></div></div>
+<div class="card" style="margin-top:12px"><h3>အခမဲ့ကနေ ဝင်ငွေရဖို့ အစီအစဉ်</h3><p class="meta">၁။ ပထမဆုံး ဒေသတွင်း ဝန်ဆောင်မှုပေးသူ ၁၀–၂၀ ဦးကို အခမဲ့စာရင်းသွင်းပေးပါ။<br>၂။ ဖုန်းနံပါတ်နဲ့ ဝန်ဆောင်မှုအချက်အလက်တွေ မှန်ကန်ကြောင်း စစ်ဆေးပါ။<br>၃။ အသုံးပြုသူရလာမှသာ ထိပ်ဆုံးဖော်ပြခ သို့မဟုတ် ကြော်ငြာခကို စမ်းသပ်ပါ။<br>၄။ ဝန်ဆောင်ခကို ကြိုတင်ရှင်းလင်းစွာဖော်ပြပြီး နှစ်ဖက်သဘောတူညီမှုရမှသာ ကောက်ခံပါ။</p></div>
+<div class="notice"><b>သတိပြုရန်</b> ဒီနမူနာက ငွေပေးချေမှု မကောက်ခံပါ၊ အမှန်တကယ်ဝင်ငွေကိုလည်း မတွက်ချက်သေးပါ။ လက်ရှိအဆင့်မှာ စိတ်ကူးကို စမ်းသပ်ဖို့ဖြစ်ပါတယ်။</div>
+</section>
+<section id="about" class="panel">
+<div class="sectionhead"><h2>App အကြောင်း</h2></div>
+<div class="card"><h3>မြန်မာ့ဈေးကွက်</h3><p class="meta">ဒေသတွင်းဝန်ဆောင်မှုရှာဖွေရေး App နမူနာ။ Android Chrome မှာ ဖွင့်ပြီး “Add to Home screen” သို့မဟုတ် “Install app” ကို ရွေးနိုင်ပါတယ်။</p><p class="meta">လက်ရှိဗားရှင်းတွင် စာရင်းများကို ဒီစက်ထဲမှာသာ သိမ်းထားပါတယ်။ အွန်လိုင်းအသုံးပြုသူအားလုံးအတွက် မျှဝေဖို့ Database, Hosting, Admin စနစ်နဲ့ ကိုယ်ရေးအချက်အလက်ဆိုင်ရာ စည်းမျဉ်းတွေ ထပ်လိုအပ်ပါတယ်။</p><button id="exportBtn" class="secondary" style="width:100%;color:#14532d">စာရင်းကို Backup လုပ်ရန်</button><button id="clearBtn" class="gold" style="width:100%;margin-top:8px">ကျွန်ုပ်ထည့်ထားသော စာရင်းများ ဖျက်ရန်</button></div>
+</section>
+</main>
+<nav class="tabbar"><button class="active" data-panel="home"><span>⌂</span>ရှာဖွေရန်</button><button data-panel="add"><span>＋</span>ကြော်ငြာတင်ရန်</button><button data-panel="income"><span>៛</span>ဝင်ငွေ</button><button data-panel="about"><span>ⓘ</span>အကြောင်း</button></nav>
+<script>
+const samples=[
+{id:'s1',name:'အိမ်သုံးလျှပ်စစ်ပြုပြင်ခြင်း (နမူနာ)',category:'လျှပ်စစ်',price:'ဈေးနှုန်းညှိနှိုင်းရန်',town:'ရန်ကုန် (နမူနာ)',phone:'09123456789',description:'မီးပလပ်၊ မီးခလုတ်နှင့် အိမ်သုံးလျှပ်စစ်စစ်ဆေးခြင်း။ နမူနာစာရင်းသာဖြစ်သည်။',sample:true},
+{id:'s2',name:'အိမ်သန့်ရှင်းရေး (နမူနာ)',category:'သန့်ရှင်းရေး',price:'တစ်ကြိမ် ၁၅,၀၀၀ ကျပ်မှ',town:'ရန်ကုန် (နမူနာ)',phone:'09987654321',description:'အိမ်ခန်းသန့်ရှင်းရေး ဝန်ဆောင်မှု။ နမူနာစာရင်းသာဖြစ်သည်။',sample:true},
+{id:'s3',name:'ရေပိုက်ပြုပြင်ခြင်း (နမူနာ)',category:'ရေပိုက်',price:'ဈေးနှုန်းညှိနှိုင်းရန်',town:'ရန်ကုန် (နမူနာ)',phone:'09444555666',description:'ရေပိုက်ယိုစိမ့်မှု စစ်ဆေးခြင်း။ နမူနာစာရင်းသာဖြစ်သည်။',sample:true}
+];
+let userItems=JSON.parse(localStorage.getItem('mmk_services')||'[]'),activeCat='အားလုံး';
+const icons={'အိမ်ပြုပြင်':'🔧','လျှပ်စစ်':'💡','ရေပိုက်':'🚿','သန့်ရှင်းရေး':'🧹','ပို့ဆောင်ရေး':'🛵','အလှအပ':'✂️','သင်ကြားရေး':'📚','အခြား':'🛠️'};
+function allItems(){return [...userItems,...samples]}
+function render(){const q=document.getElementById('search').value.trim().toLowerCase();const items=allItems().filter(x=>(activeCat==='အားလုံး'||x.category===activeCat)&&(!q||[x.name,x.category,x.town,x.phone,x.description].join(' ').toLowerCase().includes(q)));document.getElementById('count').textContent=items.length+' ခု';document.getElementById('statListings').textContent=userItems.length;document.getElementById('serviceList').innerHTML=items.map(x=>`<article class="card"><div class="cardtop"><div class="serviceicon">${icons[x.category]||'🧰'}</div><div style="flex:1;min-width:0"><h3>${esc(x.name)}</h3><div class="meta">${esc(x.category)} · ${esc(x.town)}${x.sample?' · နမူနာ':''}</div><div class="price">${esc(x.price||'ဈေးနှုန်းမဖော်ပြထားပါ')}</div></div></div><p class="meta">${esc(x.description||'အသေးစိတ်မဖော်ပြထားပါ')}</p><div class="actions"><a class="secondary" style="border-radius:12px;color:#14532d" href="tel:${esc(x.phone)}">📞 ဖုန်းဆက်ရန်</a><button class="secondary" style="color:#14532d" onclick="shareItem('${x.id}')">မျှဝေရန်</button></div></article>`).join('')||'<div class="empty">မတွေ့ပါ။ အခြားစကားလုံးနဲ့ ရှာကြည့်ပါ။</div>'}
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+document.getElementById('cats').addEventListener('click',e=>{const b=e.target.closest('[data-cat]');if(!b)return;activeCat=b.dataset.cat;document.querySelectorAll('.cat').forEach(c=>c.classList.toggle('active',c===b));render()});
+document.getElementById('searchBtn').onclick=render;document.getElementById('search').addEventListener('input',render);
+document.getElementById('serviceForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target),phone=String(f.get('phone')).replace(/[\s-]/g,'');if(!/^[0-9+]{7,15}$/.test(phone)){alert('ဖုန်းနံပါတ်ကို မှန်ကန်စွာ ဖြည့်ပါ။');return}userItems.unshift({id:'u'+Date.now(),name:f.get('name').trim(),category:f.get('category'),price:f.get('price').trim(),town:f.get('town').trim(),phone,description:f.get('description').trim(),sample:false});localStorage.setItem('mmk_services',JSON.stringify(userItems));e.target.reset();switchPanel('home');render();alert('သင့်ဖုန်းထဲရှိ နမူနာစာရင်းထဲ ထည့်ပြီးပါပြီ။ အခြားသူတွေထံ မျှဝေမထားသေးပါ။')});
+function switchPanel(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.tabbar button').forEach(b=>b.classList.toggle('active',b.dataset.panel===id));window.scrollTo(0,0)}
+document.querySelectorAll('.tabbar button').forEach(b=>b.onclick=()=>switchPanel(b.dataset.panel));
+window.shareItem=async id=>{const x=allItems().find(i=>i.id===id);if(!x)return;const txt=`${x.name}\nအမျိုးအစား: ${x.category}\nနေရာ: ${x.town}\nဈေးနှုန်း: ${x.price}\nဖုန်း: ${x.phone}\n${x.description}`;if(navigator.share){try{await navigator.share({title:x.name,text:txt})}catch(e){}}else{try{await navigator.clipboard.writeText(txt);alert('စာသားကို ကူးယူပြီးပါပြီ။')}catch(e){alert(txt)}}};
+document.getElementById('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify(userItems,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='myanmar-market-backup.json';a.click();URL.revokeObjectURL(a.href)};
+document.getElementById('clearBtn').onclick=()=>{if(confirm('သင်ထည့်ထားသော စာရင်းအားလုံးကို ဖျက်မလား။')){userItems=[];localStorage.removeItem('mmk_services');render();alert('သင်ထည့်ထားသောစာရင်းများ ဖျက်ပြီးပါပြီ။')}};
+let promptEvent;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();promptEvent=e;document.getElementById('installBtn').hidden=false});document.getElementById('installBtn').onclick=async()=>{if(promptEvent){promptEvent.prompt();await promptEvent.userChoice;promptEvent=null}else alert('Chrome မီနူး (⋮) ကိုနှိပ်ပြီး Add to Home screen ကို ရွေးပါ။')};
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+render();
+</script>
+</body></html>
